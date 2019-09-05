@@ -1,0 +1,76 @@
+.notification {
+	$parent: &;
+
+	background-color: rgb(227, 252, 239);
+
+	border-radius: var(--radius);
+
+	margin: var(--space-sm);
+
+	transform: translate3d(0px, 0px, 0px);
+
+	transition: transform 220ms cubic-bezier(0.2, 0, 0, 1) 0s;
+
+	box-shadow: var(--shadow-sm);
+	overflow: hidden;
+
+	&__main {
+		display: flex;
+
+		> * {
+			padding: 10px;
+		}
+	}
+
+	&__content {
+		flex-grow: 1;
+	}
+	&__icon {
+		background-color: rgb(54, 179, 126);
+		color: #fff;
+
+		display: flex;
+		align-items: center;
+
+		.icon {
+			width: 16px;
+			height: 16px;
+		}
+	}
+
+	&--success {
+		// background-color:var(--clr-success);
+	}
+
+	&--entering {
+		.notification-container--top-right &,
+		.notification-container--bottom-right & {
+			transform: translate3d(120%, 0, 0);
+		}
+
+		.notification-container--top-left &,
+		.notification-container--bottom-left & {
+			transform: translate3d(-120%, 0, 0);
+		}
+
+		.notification-container--top-center & {
+			transform: translate3d(0, -120%, 0);
+		}
+
+		.notification-container--bottom-center & {
+			transform: translate3d(0, 120%, 0);
+		}
+	}
+
+	&--entered {
+		transform: translate3d(0, 0, 0);
+	}
+	&--exiting {
+		transform: scale(0.66);
+		opacity: 0;
+	}
+	&--exited {
+		transform: scale(0.66);
+		opacity: 0;
+	}
+}
