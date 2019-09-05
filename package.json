@@ -8,12 +8,13 @@
     "type": "git",
     "url": "http://github.com/michaelord/notification.git"
   },
-  "devDependencies": {
+  "devDependencies": {},
+  "author": "michaelord",
+  "keywords": [],
+  "dependencies": {
     "components/libs": "http://github.com/michaelord/libs.git",
     "components/icon": "http://github.com/michaelord/icon.git",
     "components/types": "http://github.com/michaelord/types.git",
     "react-transition-group": "?????"
-  },
-  "author": "michaelord",
-  "keywords": []
+  }
 }
