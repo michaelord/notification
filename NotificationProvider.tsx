@@ -1,16 +1,14 @@
-import * as React from 'react';
-
+import {canUseDOM, generateGUID, noop} from 'components/libs';
+import {Feedback} from 'components/types';
+import React from 'react';
 // https://github.com/jossmac/react-toast-notifications/blob/master/src/ToastProvider.js
-
 import {createPortal} from 'react-dom';
-
-import {canUseDOM, noop, generateGUID} from 'components/libs';
-
-import {NotificationController} from './NotificationController';
+import {Transition, TransitionGroup} from 'react-transition-group';
 import {NotificationContainer} from './NotificationContainer';
+import {NotificationController} from './NotificationController';
 import {DefaultNotification} from './NotificationElement';
 
-import {Transition, TransitionGroup} from 'react-transition-group';
+import * as Types from 'components/types';
 
 export type Placement = 'bottom-left' | 'bottom-center' | 'bottom-right' | 'top-left' | 'top-center' | 'top-right';
 
@@ -26,8 +24,6 @@ type Components = {};
 
 type Callback = (Id: string) => void;
 
-import {Feedback} from 'components/types';
-
 export type Options = {
 	appearance?: Feedback;
 	autoDismiss?: boolean;
@@ -39,7 +35,7 @@ export type HoverFn = () => void;
 
 type NotificationType = Options & {
 	appearance: Feedback;
-	content: React.ReactNode;
+	content: Types.Children;
 	id: Id;
 };
 
@@ -51,7 +47,7 @@ type Props = {
 	// Component replacement object
 	components: Components;
 	// Unrelated app content
-	children?: React.ReactNode;
+	children?: Types.Children;
 
 	// Where, in relation to the viewport, to place the toasts
 	placement: Placement;
@@ -66,15 +62,6 @@ type NotificationsType = Array<NotificationType>;
 type State = {
 	notifications: NotificationsType;
 };
-
-/*
-type Context = {
-	add: any;
-	remove: any;
-	update: any;
-	notifications: Array<Object>;
-};
-*/
 
 export type Id = string;
 
@@ -91,8 +78,6 @@ export class NotificationProvider extends React.Component<Props, State> {
 	};
 
 	add = (content: React.ReactNode, options: Options = {}, cb: Callback = noop): string => {
-		// console.log('add')
-
 		const id = generateGUID();
 		const callback = () => cb(id);
 
@@ -108,7 +93,7 @@ export class NotificationProvider extends React.Component<Props, State> {
 		return id;
 	};
 
-	update = (id: Id, content: React.ReactNode, options: Options = {}, cb: Callback = noop) => {
+	update = (id: Id, content: Types.Children, options: Options = {}, cb: Callback = noop) => {
 		const callback = () => cb(id);
 
 		this.setState(state => {
@@ -199,9 +184,7 @@ export class NotificationProvider extends React.Component<Props, State> {
 
 export const NotificationConsumer = ({children}: {children}) => <Consumer>{context => children(context)}</Consumer>;
 
-export const withNotificationManager = () => {
-	// TODO
-};
+export const withNotificationManager = () => {};
 
 export const useNotifications = () => {
 	const ctx = React.useContext(NotificationContext);

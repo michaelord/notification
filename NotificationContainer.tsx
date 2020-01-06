@@ -1,13 +1,12 @@
-import * as React from 'react';
-
-import './NotificationContainer.scss';
-
 import {getModifiers} from 'components/libs';
-
+import React from 'react';
+import './NotificationContainer.scss';
 import {Placement} from './NotificationProvider';
 
+import * as Types from 'components/types';
+
 export type NotificationContainerProps = {
-	children?: React.ReactNode;
+	children?: Types.Children;
 	hasNotifications: boolean;
 	placement: Placement;
 };

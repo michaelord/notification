@@ -1,20 +1,20 @@
 {
-  "name": "notification",
-  "private": true,
-  "description": "...",
-  "version": "0.1.0",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/michaelord/notification.git"
-  },
-  "devDependencies": {},
-  "author": "michaelord",
-  "keywords": [],
-  "dependencies": {
-    "components/libs": "http://github.com/michaelord/libs.git",
-    "components/icon": "http://github.com/michaelord/icon.git",
-    "components/types": "http://github.com/michaelord/types.git",
-    "react-transition-group": "?????"
-  }
+	"name": "notification",
+	"private": true,
+	"description": "...",
+	"version": "0.1.0",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/michaelord/notification.git"
+	},
+	"devDependencies": {},
+	"author": "michaelord",
+	"keywords": [],
+	"dependencies": {
+		"components/libs": "http://github.com/michaelord/libs.git",
+		"components/types": "http://github.com/michaelord/types.git",
+		"components/icon": "http://github.com/michaelord/icon.git",
+		"react-transition-group": "^4.3.0"
+	}
 }

@@ -1,14 +1,13 @@
-import * as React from 'react';
-
-// https://github.com/jossmac/react-toast-notifications/blob/master/src/ToastElement.js
-
-import './NotificationElement.scss';
-
+import {Icon} from 'components/icon';
 import IconWarning from 'components/icon/warning.inline.svg';
-
-import {noop, getModifiers} from 'components/libs';
-import {HoverFn, Placement} from './NotificationProvider';
+import {getModifiers, noop} from 'components/libs';
 import {Feedback} from 'components/types';
+import React from 'react';
+// https://github.com/jossmac/react-toast-notifications/blob/master/src/ToastElement.js
+import './NotificationElement.scss';
+import {HoverFn, Placement} from './NotificationProvider';
+
+import * as Types from 'components/types';
 
 export type TransitionState = 'entering' | 'entered' | 'exiting' | 'exited';
 
@@ -16,7 +15,7 @@ export type NotificationProps = {
 	appearance: Feedback;
 	autoDismiss: boolean | number;
 	autoDismissTimeout: number; // inherited from ToastProvider
-	children?: React.ReactNode;
+	children?: Types.Children;
 	isRunning: boolean;
 	onDismiss: typeof noop;
 	onMouseEnter: HoverFn;
@@ -71,7 +70,7 @@ export const DefaultNotification = ({
 			{...otherProps}
 		>
 			<div className="notification__icon">
-				<IconWarning className="icon" />
+				<Icon icon={IconWarning} />
 			</div>
 			<div className="notification__content">{children}</div>
 

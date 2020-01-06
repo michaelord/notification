@@ -1,12 +1,10 @@
-import * as React from 'react';
-
+import {noop} from 'components/libs';
+import React from 'react';
 // https://github.com/jossmac/react-toast-notifications/blob/master/src/ToastController.js
-
 import {ComponentType} from 'react';
-
 import {NotificationProps} from './NotificationElement';
 
-import {canUseDOM, noop, generateGUID} from 'components/libs';
+import * as Types from 'components/types';
 
 type Props = NotificationProps & {
 	component: ComponentType<NotificationProps>;
